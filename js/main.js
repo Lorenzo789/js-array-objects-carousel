@@ -1,18 +1,15 @@
-{/* <section>
-<div class="container text-center">
-    <div id="img-container" class="col-12 ms_width mx-auto">
-        <h3 class="position-absolute ms_pos_title">Svezia</h3>
-        <p class="position-absolute ms_pos_subtitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus
-            voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-        <img class="ms_img_block" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
+{/*<div class="col-12 ms_width mx-auto text-center">
+    <h3 class="position-absolute ms_pos_title">Svezia</h3>
+    <p class="position-absolute ms_pos_subtitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus
+        voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
+    <img class="ms_img_block" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
 
-        <div class="col-12 d-flex justify-content-around mt-4">
-            <button id="prev-btn" class="btn btn-dark">Previous</button>
-            <button id="next-btn" class="btn btn-dark">Next</button>
-        </div>
+    <div class="col-12 d-flex justify-content-around mt-4">
+        <button id="prev-btn" class="btn btn-dark">Previous</button>
+        <button id="next-btn" class="btn btn-dark">Next</button>
     </div>
-</div>
-</section> */}
+ </div> */}
+
 
 // Creare un carosello come nella foto allegata.
 
@@ -67,17 +64,20 @@ const images = [
     },
 ];
 
-images.forEach( (element) => {
+images.forEach( (element, index) => {
 
     console.log(element);
+    console.log(index);
     
-    const newImage = createElement(element);
+    const newContainer = createElement(element);
 
-    console.log(newImage);
+    if (images.index != 0) {
+            
+        newContainer.classList.add('d-none');
+    }
 
-    appendParent(newImage); 
+    appendParent(newContainer); 
 });
-
 
 
 
@@ -98,21 +98,15 @@ images.forEach( (element) => {
         
 // ! FUNCTION ! \\
 function createElement(image) {
-    const newElement = document.createElement('section');
-    newElement.className = ('text-center');
-    newElement.innerHTML = `<div id="img-container" class="col-12 ms_width mx-auto">
+    const newElement = document.createElement('div');
+    newElement.className = ('text-center col-12 ms_width mx-auto');
+    newElement.innerHTML =
+    
+        `<h3 class="position-absolute ms_pos_title">${image.title}</h3>
 
-    <h3 class="position-absolute ms_pos_title">${image.title}</h3>
+        <p class="position-absolute ms_pos_subtitle">${image.description}</p>
 
-    <p class="position-absolute ms_pos_subtitle">${image.description}</p>
-
-    <img class="ms_img_block" src="${image.url}" alt="">
-
-    <div class="col-12 d-flex justify-content-around mt-4">
-        <button id="prev-btn" class="btn btn-dark">Previous</button>
-        <button id="next-btn" class="btn btn-dark">Next</button>
-    </div>
-</div>`
+        <img class="ms_img_block" src="${image.url}" alt="">`
 
     return newElement;
 }
@@ -125,3 +119,4 @@ function appendParent(image) {
 
     return parentElement;
 }
+// ! FUNCTION ! \\
