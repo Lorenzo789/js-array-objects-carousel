@@ -65,6 +65,56 @@ images.forEach( (element, index) => {
 });
 
 
+const parentWrapper = document.getElementById('main-wrapper');
+
+let slideActive = 0;
+
+let containerList = parentWrapper.children;
+
+
+// ? NEXT BUTTON ? \\
+const nextButton = document.getElementById('next-btn');
+
+nextButton.addEventListener('click', function(){
+
+
+    containerList[slideActive].classList.add('d-none');
+    
+    ++slideActive;
+
+    
+    if (slideActive === images.length){
+
+        slideActive = 0;
+        
+    }
+
+    containerList[slideActive].classList.remove('d-none');
+
+});
+// ? NEXT BUTTON ? \\
+
+
+// & PREV BUTTON & \\
+const prevButton = document.getElementById('prev-btn');
+
+prevButton.addEventListener('click', function(){
+
+
+    containerList[slideActive].classList.add('d-none');
+    
+    --slideActive;
+    
+    if (slideActive === -1) {
+        
+        slideActive = images.length-1;
+
+    }
+
+    containerList[slideActive].classList.remove('d-none');
+
+});
+// & PREV BUTTON & \\
 
 
 
