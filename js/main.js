@@ -1,15 +1,3 @@
-{/*<div class="col-12 ms_width mx-auto text-center">
-    <h3 class="position-absolute ms_pos_title">Svezia</h3>
-    <p class="position-absolute ms_pos_subtitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus
-        voluptatum suscipit tempore aliquid deleniti aut veniam.</p>
-    <img class="ms_img_block" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
-
-    <div class="col-12 d-flex justify-content-around mt-4">
-        <button id="prev-btn" class="btn btn-dark">Previous</button>
-        <button id="next-btn" class="btn btn-dark">Next</button>
-    </div>
- </div> */}
-
 
 // Creare un carosello come nella foto allegata.
 
@@ -66,22 +54,15 @@ const images = [
 
 images.forEach( (element, index) => {
 
-    console.log(element);
-    console.log(index);
-    
     const newContainer = createElement(element);
 
-    if (images.index != 0) {
+    if (index !== 0) {
             
         newContainer.classList.add('d-none');
     }
 
     appendParent(newContainer); 
 });
-
-
-
-
 
 
 
